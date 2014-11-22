@@ -1,0 +1,157 @@
+
+html, body{
+    height: 100%;
+    font-size: 16px;
+    margin: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body, nav, li, a {
+    font-family: Tahoma;
+}
+
+.codeContainer {
+    width: 80%;
+    min-width: 500px;
+    margin: auto;
+    overflow: auto;
+}
+
+textarea, .CodeMirror {
+    width: 100%;
+    margin: auto;
+    clean: both;
+    display: block;
+    height: auto;
+    float: left;
+    transition: width linear .2s;
+}
+
+textarea, .CodeMirror, .evaluates {
+    border: solid 1px gray;
+    border-radius: 6px;
+}
+
+.evaluates {
+    background: #fed;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    white-space: pre;
+    font-family: monospace;
+}
+
+.CodeMirror {
+    font-size: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    position: relative;
+}
+
+.btns {
+    width: 80%;
+    min-width: 500px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    z-index: 999;
+    width: 210px;
+    background-color: #444;
+    color: #fff;
+    transition: left linear .2s;
+}
+
+nav:hover {
+    left: 0;
+}
+
+nav ol {
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+}
+
+nav li:hover {
+    background-color: #4747be;
+}
+
+.codeContainer {
+    position: relative;
+    padding-top: 30px;
+    min-height: 275px;
+}
+
+.CodeMirror:nth-child(2) {
+    width: 0;
+    float: right;
+    position: absolute;
+    right: 1px;
+    z-index: 999999999;
+    border-radius: 6px 0 0 6px;
+    border: solid 1px transparent;
+}
+
+.CodeMirror:nth-child(1) {
+    margin-top: 10px;
+}
+
+.showingTranspiler .CodeMirror:nth-child(1){
+    opacity: .2;
+    position: absolute;
+}
+
+.showingTranspiler .CodeMirror:nth-child(2){
+    width: 90%;
+    display: block;
+    position: relative;
+    box-shadow: -5px -5px 50px 0 #bbb;
+    border: solid 1px gray;
+    border-right: none;
+}
+
+#workingOn {
+    width: 80%;
+    min-width: 500px;
+    margin: auto;
+    display: block;
+}
+
+.steps {
+    display: none;
+}
+
+.hasSteps .steps {
+    display: inline;
+}
+
+#samples {
+    display: none;
+}
+
+#workingOnDesc {
+    white-space: pre;
+}
+
+#workingOnDesc h2{
+    margin: 0;
+    padding: 0;
+}
+
+.hideDescription #workingOnDesc {
+    display: none;
+}
+
+.error-message {
+    color: red;
+}
