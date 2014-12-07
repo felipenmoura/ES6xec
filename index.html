@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>ES6xec - Run es6 commands</title>
+        <title>ES6xec - Run es6 commands and compare them to ES5</title>
         <script src="vendors/6to5/browser-polyfill.js"></script>
         <script src="vendors/6to5/browser.js"></script>
 
@@ -14,15 +14,37 @@
 
     </head>
     <body>
+        <header>
+            <div class="lessons">
+                <input id="lessons-menu-btn" class="btn" type="button" value="Lessons ▼" />
+                <nav id="theNav">
+                    <ol type="1">
+                        <li data-id="templatestring" data-type="preLoad">Template String</li>
+                        <li data-id="shorthand-notation" data-type="preLoad">Shorthand Notation</li>
+                        <li data-id="arguments" data-type="preLoad">Arguments</li>
+                        <li data-id="arrow-function" data-type="preLoad">Arrow Functions</li>
+                        <li data-id="promises" data-type="preLoad">Promises</li>
+                        <li data-id="generators" data-type="preLoad">Generators</li>
+                        <li data-id="classes" data-type="preLoad">Classes</li>
+                    </ol>
+                </nav>
+            </div>
 
-        <span id="workingOn">
-            <span id="workingOnDesc">free style</span>
-             <span class="steps">
-                <input type="button" id="prevStep" value=" < " />
-                <label id="stepsLabel">0/0</label>
-                <input type="button" id="nextStep" value=" > " />
+            <span id="workingOn">
+                <span id="workingOnDesc">free style</span>
+                 <span class="steps">
+                    <input type="button" id="prevStep" value=" < " />
+                    <label id="stepsLabel">0/0</label>
+                    <input type="button" id="nextStep" value=" > " />
+                </span>
             </span>
-        </span>
+            
+            <span class="featuresBtns">
+                <input id="showBtn" type="button" value="Show in ES5" class="btn" />
+                <input id="runBtn" type="button" value="Run" class="btn" />
+            </span>
+            
+        </header>
 
         <div class="codeContainer">
             <textarea id="originalCode">// insert your code here
@@ -36,24 +58,9 @@
 </textarea>
             <div id="transpiledToEl"></div>
         </div>
-        <div class="btns">
+        <div class="evaluatesContainer">
             <div class="evaluates">Evaluates: <span id="returnedValue"></span></div>
-            <input id="showBtn" type="button" value="Show in ES5" />
-            <input id="runBtn" type="button" value="Run" />
         </div>
-
-
-        <nav id="theNav">
-            <ol type="1">
-                <li data-id="templatestring" data-type="preLoad">Template String</li>
-                <li data-id="shorthand-notation" data-type="preLoad">Shorthand Notation</li>
-                <li data-id="arguments" data-type="preLoad">Arguments</li>
-                <li data-id="arrow-function" data-type="preLoad">Arrow Functions</li>
-                <li data-id="promises" data-type="preLoad">Promises</li>
-                <li data-id="generators" data-type="preLoad">Generators</li>
-                <li data-id="classes" data-type="preLoad">Classes</li>
-            </ol>
-        </nav>
 
         <div id="samples">
             <section id="templatestring">

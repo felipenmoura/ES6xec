@@ -8,8 +8,10 @@ function log(){
 
     "use strict";
 
-    var utils = {};
-    var bodyCL = document.body.classList;
+    var utils = {},
+        bodyCL = document.body.classList,
+        previousCode= "",
+        showInEs5Label = 'Show in ES5';
 
     utils.strToType = function (val) {
         return JSON.stringify(val, null, 4);
@@ -42,6 +44,8 @@ function log(){
 
         utils.codeEditor.setValue(sample || "\n// sample \""+ sampleName +"\" not found\n");
         utils.setStepLabel();
+        
+        showBtn.value = showInEs5Label;
     }
     utils.prevStep = function(){
         if(utils.learning && utils.learning.idx > 0){
@@ -64,13 +68,15 @@ function log(){
     function bindEvents () {
         showBtn.addEventListener('click', function(){
             //alert(to5.transform(codeEditor.getValue()).code);
-            if(this.value == 'Show in ES5'){
-                this.value = 'Hide';
-                utils.transpiledTo.setValue(to5.transform(utils.codeEditor.getValue()).code);
-                document.body.classList.add('showingTranspiler');
+            if(this.value == showInEs5Label){
+                this.value = 'Back to ES6';
+                previousCode= utils.codeEditor.getValue();
+                utils.codeEditor.setValue(to5.transform(utils.codeEditor.getValue()).code);
+                //document.body.classList.add('showingTranspiler');
             }else{
-                this.value = 'Show in ES5';
-                document.body.classList.remove('showingTranspiler');
+                this.value = showInEs5Label;
+                //document.body.classList.remove('showingTranspiler');
+                utils.codeEditor.setValue(previousCode);
             }
         });
 
@@ -137,7 +143,7 @@ function log(){
                 val = utils.strToType(cur);
                 finalMessage+= " " + (val && val.replace? val.replace(/\\n/g, '\n') : "");
             });
-            returnedValue.innerHTML+= "<br/>> " + finalMessage;
+            returnedValue.innerHTML+= "<br/>> " + finalMessage.replace(/^ /, '');
 
             originalLog.apply(window.console, args);
         }

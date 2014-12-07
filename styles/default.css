@@ -1,12 +1,13 @@
 
 html, body{
     height: 100%;
+    width: 100%;
     font-size: 16px;
     margin: 0;
 }
 
 *, *:before, *:after {
-    box-sizing: border-box;
+    box-sizing: padding-box;
 }
 
 body, nav, li, a {
@@ -14,8 +15,9 @@ body, nav, li, a {
 }
 
 .codeContainer {
-    width: 80%;
-    min-width: 500px;
+    position: relative;
+    width: 100%;
+    min-width: 370px;
     margin: auto;
     overflow: auto;
 }
@@ -31,17 +33,26 @@ textarea, .CodeMirror {
 }
 
 textarea, .CodeMirror, .evaluates {
-    border: solid 1px gray;
-    border-radius: 6px;
+    border: none;
+/*
+    border-left: solid 4px gray;
+    border-right: solid 4px gray;
+*/
+    //border: solid 1px gray;
+    //border-radius: 6px;
 }
 
 .evaluates {
-    background: #fed;
-    width: 100%;
+    background: #eee;
     text-align: left;
     padding: 1rem;
     white-space: pre;
     font-family: monospace;
+}
+
+.evaluatesContainer {
+    border-top: solid 1px #aaa;
+    border-bottom: solid 3px gray;
 }
 
 .CodeMirror {
@@ -53,43 +64,11 @@ textarea, .CodeMirror, .evaluates {
 }
 
 .btns {
-    width: 80%;
+    border-top: solid 4px gray;
     min-width: 500px;
     text-align: center;
     margin: auto;
     margin-bottom: 200px;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: -200px;
-    z-index: 999;
-    width: 210px;
-    background-color: #444;
-    color: #fff;
-    transition: left linear .2s;
-}
-
-nav:hover {
-    left: 0;
-}
-
-nav ol {
-    margin: 0;
-    padding: 0 0 0 1.5rem;
-    line-height: 1.5rem;
-    cursor: pointer;
-}
-
-nav li:hover {
-    background-color: #4747be;
-}
-
-.codeContainer {
-    position: relative;
-    padding-top: 30px;
-    min-height: 275px;
 }
 
 .CodeMirror:nth-child(2) {
@@ -102,9 +81,11 @@ nav li:hover {
     border: solid 1px transparent;
 }
 
+/*
 .CodeMirror:nth-child(1) {
     margin-top: 10px;
 }
+*/
 
 .showingTranspiler .CodeMirror:nth-child(1){
     opacity: .2;
@@ -120,11 +101,113 @@ nav li:hover {
     border-right: none;
 }
 
-#workingOn {
-    width: 80%;
-    min-width: 500px;
-    margin: auto;
+header {
+    background: white;
+    border-bottom: solid 4px gray;
+    height: 46px;
+    position: relative;
+    z-index: 999;
     display: block;
+}
+
+header > div,
+header > input {
+    float: left;
+}
+
+#workingOn {
+    float: left;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    z-index: 999;
+    background: white;
+    height: 100%;
+    padding: 0 10px;
+}
+
+.featuresBtns {
+    border-left: solid 3px gray;
+    height: 100%;
+    display: inline-block;
+/*    margin-left: 8px;*/
+}
+
+/*.featuresBtns input {
+    padding: 5px;
+}*/
+
+.btn {
+    height: 46px;
+    text-align: center;
+    background: white;
+    border: none;
+    min-width: 100px;
+    padding: 4px 14px 4px 10px;
+    margin: 0;
+    position: relative;
+    z-index: 999;
+    border-left: solid 4px transparent;
+    /*font-size: 1rem;*/
+}
+
+.btn:hover {
+    background-color: #f4f4f4;
+    outline: none;
+}
+
+.btn:active {
+    background-color: #e0e0e0;
+    outline: none;
+}
+
+nav {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    z-index: 10;
+    width: 192px;
+    background-color: gray;
+    color: white;
+    transition: top ease-out .2s;
+/*    height: 12rem;*/
+    overflow: auto;
+    font-size: .8rem;
+}
+
+nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5rem;
+    cursor: pointer;
+}
+
+nav ol li {
+    height: 1.8rem;
+    padding: 5px 5px 0 5px;
+    margin: 0;
+    border-left: solid 0 white;
+    transition: border-left, .2s linear;
+}
+
+nav li:hover {
+    //background-color: #e0e0e0;
+    //border-right: solid 4px blue;
+    border-left: solid 8px red;
+}
+
+.lessons {
+    display: inline-block;
+}
+
+.lessons:hover .btn {
+/*    background: #e0e0e0;*/
+/*    border-left-color: blue;*/
+}
+
+.lessons:hover nav {
+    top: 46px;
 }
 
 .steps {
@@ -140,7 +223,8 @@ nav li:hover {
 }
 
 #workingOnDesc {
-    white-space: pre;
+    display: inline-block;
+    padding-top: 12px;
 }
 
 #workingOnDesc h2{
@@ -155,3 +239,4 @@ nav li:hover {
 .error-message {
     color: red;
 }
+
