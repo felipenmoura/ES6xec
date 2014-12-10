@@ -37,7 +37,7 @@ function log(){
                 last: samples.length-1
             };
 
-            workingOnDesc.innerHTML = samples.description || sampleName;
+            workingOnDesc.innerHTML = (samples.description || sampleName).replace(/\-/g, ' ');
         }else{
             sample = false;
         }
